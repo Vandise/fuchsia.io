@@ -1,0 +1,5 @@
+module:
+  title: "Module 1: Hello JavaScript!"
+  labs:
+    - name: "Hello World!"
+      dir: "hello_javascript"

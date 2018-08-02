@@ -1,0 +1,50 @@
+{
+  "name": "fuchsiaio",
+  "version": "0.0.1",
+  "description": "Fuchsia IO programming suite",
+  "main": null,
+  "repository": "git@github.com:Vandise/connectserver.git",
+  "author": "Benjamin J Anderson <andeb2804@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "build:watch": "webpack --watch",
+    "test": "nyc --require babel-core/register --reporter=lcov --all npm run test:clean",
+    "test:clean": "mocha --opts spec/mocha.opts ${FILE:-spec}"
+  },
+  "nyc": {
+    "include": [
+      "src"
+    ]
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.6.5",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.6.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.3.0",
+    "chai-string": "^1.2.0",
+    "deepmerge": "^1.3.2",
+    "imports-loader": "^0.6.5",
+    "json-loader": "^0.5.4",
+    "mocha": "^2.1.0",
+    "mocha-multi": "^0.7.2",
+    "mocha-text-cov": "^0.1.0",
+    "nyc": "^6.4.4",
+    "sinon": "^2.0.0",
+    "sinon-chai": "^2.8.0",
+    "testdouble": "^3.2.5",
+    "webpack": "^1.12.13",
+    "yaml-loader": "^0.1.0",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {}
+}
