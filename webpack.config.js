@@ -53,7 +53,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      util: path.resolve(__dirname, 'src/util/'),
+      Util: path.resolve(__dirname, 'src/util/'),
     }
   },
   plugins: [

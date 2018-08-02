@@ -6,6 +6,7 @@ import sinonChai from "sinon-chai";
 import sinon from "sinon";
 import td from "testdouble";
 import * as dom from "../../util/dom";
+import "./hooks";
 
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
@@ -15,13 +16,13 @@ dom.globals.expect = chai.expect;
 dom.globals.sinon = sinon;
 dom.globals.chai = chai;
 dom.globals.td = td;
+dom.globals.mocha = mocha;
 
 dom.globals.mocha.setup('bdd');
 
-describe("The unit tests", () => {
-  it("are loaded", () => {
-    const spy = sinon.spy();
-    spy();
-    expect(spy).to.have.been.called;
-  });
-});
+export default {
+  chai,
+  dom,
+  sinon,
+  td: dom.globals.td,
+};

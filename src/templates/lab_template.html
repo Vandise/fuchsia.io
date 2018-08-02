@@ -7,20 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
     <link rel="stylesheet" href="/styles/mocha.css">
-    <script src="/scripts/fuchsia.js" type="text/javascript"></script>
-    <script src="/scripts/#{lab_spec}" type="text/javascript"></script>
     <script type="text/javascript">
-      mocha.run();
+      window.fuchsia = window.fuchsia || {};
     </script>
+    <script src="/scripts/fuchsia.js" type="text/javascript"></script>
+    <script src="/scripts/#{lab_spec}" id="labSpecs" type="text/javascript"></script>
   </head>
   <body>
     <header>
     </header>
     <main>
-      <div id="mocha"></div>
       #{lab_instructions}
+      <div>
+        <textarea id="userCode"></textarea>
+      </div>
+      <div id="mocha"></div>
+      <div id="writeOutput"></div>
     </main>
     <footer>
     </footer>
+    <script type="text/javascript">
+      window.fuchsia.runTests();
+    </script>
   </body>
 </html>
