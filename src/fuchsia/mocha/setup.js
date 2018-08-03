@@ -8,6 +8,7 @@ import td from "testdouble";
 import * as dom from "../../util/dom";
 import "./hooks";
 
+chai.config.includeStack = false;
 chai.use(sinonChai);
 chai.use(chaiAsPromised);
 chai.use(chaiString);
@@ -18,7 +19,8 @@ dom.globals.chai = chai;
 dom.globals.td = td;
 dom.globals.mocha = mocha;
 
-dom.globals.mocha.setup('bdd');
+dom.globals.mocha.setup({ ui: 'bdd', fullTrace: false });
+dom.globals.mocha.options.fullStackTrace = false;
 
 export default {
   chai,

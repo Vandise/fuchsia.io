@@ -1,0 +1,9 @@
+html,body {
+  background-color: #0C1021;
+  margin: 0;
+  height: 100%;
+}
+
+.CodeMirror-scroll {
+  border: 2px solid #262A3D;
+}

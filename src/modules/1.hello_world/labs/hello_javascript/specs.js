@@ -13,4 +13,8 @@ describe("Lab 1: Hello JavaScript!", () => {
   it("calls the 'write()' function", () => {
     expect(globals.write).to.have.been.called;
   });
+
+  it("calls the 'write()' function with \"Hello JavaScript!\"", () => {
+    expect(globals.write).to.have.been.calledWith("Hello JavaScript!");
+  });
 });

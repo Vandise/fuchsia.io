@@ -1,0 +1,25 @@
+body > header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #161B2F;
+  padding: 2em;
+  z-index: 99;
+}
+
+body > main {
+  padding-top: 4em;
+}
+
+header .button {
+  margin-left: auto;
+  padding: 1em;
+  background-color: #161B2F;
+  border: 1px solid #afafaf;
+  color: #afafaf;
+}
+
+header .button:hover {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
