@@ -23,9 +23,10 @@ dom.globals.fuchsia.resetTests = () => {
 
 dom.globals.fuchsia.runTests = () => {
   dom.globals.document.getElementById(MOCHA_ID).innerHTML = "";
-  dom.globals.mocha.run(() => {
+  const lastRun = dom.globals.mocha.run(() => {
     dom.globals.fuchsia.resetTests();
   });
+  dom.globals.fuchsia.lastRun = lastRun;
 };
 
 dom.globals.fuchsia.loadUserScript = () => {
