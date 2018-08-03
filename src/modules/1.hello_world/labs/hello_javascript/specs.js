@@ -6,8 +6,12 @@ const globals = dom.globals;
 describe("Lab 1: Hello JavaScript!", () => {
 
   beforeEach(() => {
-    globals.write = sinon.spy();
+    td.replace(globals, "write", sinon.spy());
     return globals.fuchsia.loadUserScript();
+  });
+
+  afterEach(() => {
+    td.reset();
   });
 
   it("calls the 'write()' function", () => {

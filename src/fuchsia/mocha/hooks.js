@@ -2,6 +2,7 @@ import * as dom from "../../util/dom";
 
 const MOCHA_ID = "mocha";
 const SPEC_DIV_ID = "labSpecs";
+const USER_CODE_RUN_ID = "userCodeExe";
 
 dom.globals.fuchsia.resetTests = () => {
   dom.globals.mocha.suite.suites = [];
@@ -21,7 +22,7 @@ dom.globals.fuchsia.resetTests = () => {
 };
 
 dom.globals.fuchsia.runTests = () => {
-  document.getElementById(MOCHA_ID).innerHTML = "";
+  dom.globals.document.getElementById(MOCHA_ID).innerHTML = "";
   dom.globals.mocha.run(() => {
     dom.globals.fuchsia.resetTests();
   });
@@ -36,10 +37,16 @@ dom.globals.fuchsia.loadUserScript = () => {
       }
     }, 100);
 
+    const lastRun = dom.globals.document.getElementById(USER_CODE_RUN_ID);
+    if (null != lastRun) {
+      lastRun.parentNode.removeChild(lastRun);
+    }
+
     const script = document.createElement("script");
     script.type = "text/javascript";
+    script.id = USER_CODE_RUN_ID;
     script.innerHTML = dom.globals.fuchsia.editor.getValue();
-    script.innerHTML += "fuchsia.loadedUserScript = true;";
+    script.innerHTML += "\nfuchsia.loadedUserScript = true;";
     (dom.globals.document.getElementsByTagName("head")[0]).appendChild(script);
   });
 };

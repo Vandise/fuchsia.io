@@ -3,6 +3,7 @@ import "codemirror/mode/javascript/javascript.js";
 import * as dom from "../../util/dom";
 
 const USER_CODE_ID = "userCode";
+const RUN_TESTS_BTN = "runTestsBtn";
 const RUN_CODE_BTN = "runCodeBtn";
 
 const textArea = dom.globals.document.getElementById(USER_CODE_ID);
@@ -15,7 +16,12 @@ const editor = CodeMirror.fromTextArea(textArea, {
 
 dom.globals.fuchsia.editor = editor;
 
+const runTestsBtn = dom.globals.document.getElementById(RUN_TESTS_BTN);
+runTestsBtn.addEventListener("click", () => {
+  dom.globals.fuchsia.runTests();
+});
+
 const runCodeBtn = dom.globals.document.getElementById(RUN_CODE_BTN);
 runCodeBtn.addEventListener("click", () => {
-  dom.globals.fuchsia.runTests();
+  dom.globals.fuchsia.loadUserScript();
 });
